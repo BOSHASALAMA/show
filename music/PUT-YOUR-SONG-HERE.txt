@@ -1,0 +1,2 @@
+Put your song here and name it song.mp3
+(or change the src in index.html: <audio id="bgm" src="music/song.mp3">)

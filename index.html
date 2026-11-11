@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1a040d">
+  <title>11 • 11 • 2026 ❤️</title>
+
+  <!-- Elegant fonts (fall back to system serif if offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ BACKGROUND LAYERS ============ -->
+  <div class="bg" aria-hidden="true">
+    <div class="light l1"></div>
+    <div class="light l2"></div>
+    <div class="light l3"></div>
+    <canvas id="particles"></canvas>
+    <div class="hearts" id="hearts"></div>
+  </div>
+
+  <!-- ============ MUSIC TOGGLE (never autoplays) ============ -->
+  <button class="music-btn" id="musicBtn" aria-label="Play music" aria-pressed="false" title="Music">
+    <span class="ico-off">♪</span>
+  </button>
+  <span class="music-hint" aria-hidden="true">Tap for music</span>
+
+  <!-- ============ LANDING SCREEN ============ -->
+  <section class="landing" id="landing">
+    <div class="envelope-wrap">
+      <div class="glow-ring"></div>
+      <div class="envelope" id="envelope">
+        <div class="env-back"></div>
+        <div class="env-letter"><span>❤</span></div>
+        <div class="env-front"></div>
+        <div class="env-flap"></div>
+        <div class="env-seal">❤</div>
+      </div>
+    </div>
+
+    <h1 class="landing-title">There's Something Special For You <span class="heart-emoji">❤️</span></h1>
+
+    <button class="open-btn" id="openBtn"><span>Open Your Surprise</span></button>
+  </section>
+
+  <!-- ============ MAIN SURPRISE ============ -->
+  <main class="main" id="main" aria-hidden="true">
+    <div class="layout">
+
+      <!-- Left gallery -->
+      <aside class="gallery gallery-left">
+        <figure class="frame" style="--i:0; --rot:-5deg; --fd:6.5s">
+          <div class="float"><div class="shape polaroid">
+            <div class="ph"><img src="images/photo1.jpg" alt="Our memory 1"></div>
+            <span class="cap">forever ♥</span>
+          </div></div>
+        </figure>
+
+        <figure class="frame" style="--i:2; --rot:3deg; --fd:7.5s">
+          <div class="float"><div class="shape arch">
+            <div class="ph"><img src="images/photo2.jpg" alt="Our memory 2"></div>
+          </div></div>
+        </figure>
+
+        <figure class="frame" style="--i:4; --rot:-3deg; --fd:6s">
+          <div class="float"><div class="shape vintage">
+            <div class="ph"><img src="images/photo3.jpg" alt="Our memory 3"></div>
+            <span class="cap">11 · 11</span>
+          </div></div>
+        </figure>
+      </aside>
+
+      <!-- Message card -->
+      <section class="card-col">
+        <article class="card" id="card" dir="rtl" lang="ar" title="">
+          <div class="card-glow" aria-hidden="true"></div>
+
+          <svg class="beat-heart" viewBox="0 0 100 90" aria-hidden="true">
+            <defs>
+              <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f1d49b"/><stop offset="1" stop-color="#c9566d"/>
+              </linearGradient>
+            </defs>
+            <path fill="url(#hg)" d="M50 88C20 62 2 44 2 26 2 12 13 2 27 2c10 0 18 5 23 14 5-9 13-14 23-14 14 0 25 10 25 24 0 18-18 36-48 62z"/>
+          </svg>
+
+          <div class="message" id="message" aria-live="polite"></div>
+          <button class="skip" id="skipBtn" type="button" dir="ltr">tap to skip</button>
+        </article>
+
+        <button class="more-btn" id="moreBtn" type="button">One More Thing ❤️</button>
+      </section>
+
+      <!-- Right gallery -->
+      <aside class="gallery gallery-right">
+        <figure class="frame" style="--i:1; --rot:5deg; --fd:7s">
+          <div class="float"><div class="shape heart">
+            <div class="ph"><img src="images/photo4.jpg" alt="Our memory 4"></div>
+          </div></div>
+        </figure>
+
+        <figure class="frame" style="--i:3; --rot:-4deg; --fd:6.2s">
+          <div class="float"><div class="shape polaroid">
+            <div class="ph"><img src="images/photo5.jpg" alt="Our memory 5"></div>
+            <span class="cap">my favorite ♥</span>
+          </div></div>
+        </figure>
+
+        <figure class="frame" style="--i:5; --rot:3deg; --fd:7.8s">
+          <div class="float"><div class="shape oval">
+            <div class="ph"><img src="images/photo6.jpg" alt="Our memory 6"></div>
+          </div></div>
+        </figure>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ============ POPUP ============ -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalText">
+      <button class="modal-close" id="closeBtn" aria-label="Close">×</button>
+
+      <svg class="draw-heart" viewBox="0 0 100 90" aria-hidden="true">
+        <path d="M50 88C20 62 2 44 2 26 2 12 13 2 27 2c10 0 18 5 23 14 5-9 13-14 23-14 14 0 25 10 25 24 0 18-18 36-48 62z"/>
+      </svg>
+
+      <p class="modal-text" id="modalText" dir="rtl" lang="ar">كل يوم معاكي هو أجمل حكاية نفسي أفضل أعيشها طول عمري ❤️</p>
+
+      <div class="counter" dir="ltr" aria-label="11 11 2026">
+        <span data-to="11">0</span><i>•</i><span data-to="11">0</span><i>•</i><span data-to="2026">0</span>
+      </div>
+    </div>
+    <div class="burst" id="burst" aria-hidden="true"></div>
+  </div>
+
+  <!-- Your song: put your file at music/song.mp3 (or change the name below) -->
+  <audio id="bgm" src="music/Albumaty.Com_twwlyt_mn_ghyr_klam.mp3" loop preload="none"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
